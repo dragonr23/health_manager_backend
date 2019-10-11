@@ -76,7 +76,7 @@ def retrieve():
     username = request.headers.get('username')
     email = request.headers.get('email')
 
-    user = []
+    users = []
     if email:
         result = User.query.filter_by(email=email).first()
 
@@ -90,7 +90,7 @@ def retrieve():
             'email': result.email,
         }
 
-        user.append(user)
+        users.append(user)
 
         return jsonify({
             'success': 'Retrieved Users',
